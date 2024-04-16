@@ -1,5 +1,7 @@
-from pyArango import connection
+from arango import ArangoClient
 
-conn = connection.Connection(arangoURL="http+tcp://arangodb:8529", username="root", password="openSesame")
+client = ArangoClient()
 
-print(conn)
+db = client.db('http://arangodb:8529', username='root', password='openSesame')
+
+print(db)
