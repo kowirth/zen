@@ -10,7 +10,9 @@ services:
       - "8529:8529"
 
   python-app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: python-app
     environment:
       - PYTHONUNBUFFERED=1
@@ -18,3 +20,4 @@ services:
       - .:/app
     depends_on:
       - arangodb
+    command: ["tail", "-f", "/dev/null"]
